@@ -1,10 +1,6 @@
 {
   "version": "2.2.0",
-  "author": {
-    "name": "Anton Fisher",
-    "email": "a.fschr@gmail.com",
-    "url": "http://antonfisher.com"
-  },
+  "author": "Anton Fisher <a.fschr@gmail.com> (http://antonfisher.com)",
   "description": "React boilerplate with ES2015, Express.js, and Webpack 3",
   "license": "MIT",
   "engines": {
@@ -12,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/antonfisher/react-express-webpack.git"
+    "url": "git+https://github.com/antonfisher/react-express-webpack.git"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon src/server",
@@ -85,5 +81,11 @@
     "request": "2.83.0",
     "sanitize.css": "5.0.0",
     "winston": "^2.4.2"
-  }
+  },
+  "name": "react-express-webpack",
+  "bugs": {
+    "url": "https://github.com/antonfisher/react-express-webpack/issues"
+  },
+  "homepage": "https://github.com/antonfisher/react-express-webpack#readme",
+  "main": "index.js"
 }

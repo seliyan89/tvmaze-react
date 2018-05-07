@@ -6,3 +6,27 @@ html, body {
 body{
   padding:20px;
 }
+
+.intro {
+	text-align: center;
+	color: red;
+	font-size:40px;
+}
+
+.searchBox {
+	display:block;
+	margin: 0 auto;
+}
+
+.submitSearch {
+	display:block;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.searchAgainBox {
+	display:block;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}

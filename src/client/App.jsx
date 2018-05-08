@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {hot} from 'react-hot-loader';
 import {results} from './results';
@@ -21,14 +20,8 @@ class App extends React.Component {
     this.setState({ searchStatus: searchStatus, searchResults: resultsStatus }); 
   }
 
-  updateResults (val){
-    this.setState({results:val} , () => {
-      console.log("hi");
-    });
-  }
-
   render() {
-
+    console.log("searchStatus",this.state.searchStatus);
     let searchStatusElement = null;
     if (this.state.searchStatus==false) {
       searchStatusElement = <Form updateSearchAndResultStatus = {this.updateSearchAndResultStatus} />
@@ -53,6 +46,7 @@ class App extends React.Component {
 class SearchAgain extends React.Component {
   constructor(props){
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event){
@@ -62,7 +56,7 @@ class SearchAgain extends React.Component {
 
   render(){
     return(
-      <form onSubmit={this.props.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <input className={styles.searchAgainBox} type="submit" value="Search Again" />
       </form>
       )

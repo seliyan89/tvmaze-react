@@ -1,9 +1,8 @@
 import React from 'react';
 import {hot} from 'react-hot-loader';
 import {results} from './results';
+import {queryTVMazeAPI} from './Util';
 
-// import Counter from './components/counter/counter';
-// import Form from './components/form/form';
 import styles from './style.scss';
 
 class App extends React.Component {
@@ -57,7 +56,7 @@ class SearchAgain extends React.Component {
   render(){
     return(
       <form onSubmit={this.handleSubmit}>
-        <input className={styles.searchAgainBox} type="submit" value="Search Again" />
+      <input className={styles.searchAgainBox} type="submit" value="Search Again" />
       </form>
       )
   }
@@ -69,11 +68,21 @@ class Form extends React.Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      searchInput : ""
+    }
   }
 
-  handleSubmit(event){
+  async handleSubmit(event){
     event.preventDefault();
-    this.props.updateSearchAndResultStatus(true,results);
+    let searchValue = await queryTVMazeAPI(this.state.searchInput);
+    this.props.updateSearchAndResultStatus(true,searchValue);
+  }
+
+  handleChange(event){
+    event.preventDefault();
+    this.setState({searchInput:event.target.value});
   }
 
   render(){ 
@@ -81,7 +90,7 @@ class Form extends React.Component {
     return (
       <div>
       <form onSubmit={this.handleSubmit}>
-      <input className={styles.searchBox} placeholder="Enter Search" />
+      <input onChange={this.handleChange} className={styles.searchBox} placeholder="Enter Search" value={this.state.searchInput} />
       <input className={styles.submitSearch} type="submit" value="Submit" />
       </form>
       </div>
